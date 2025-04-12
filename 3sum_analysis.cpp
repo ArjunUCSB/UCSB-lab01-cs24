@@ -17,7 +17,7 @@ public:
                 for (int k = j + 1; k < n; ++k) {
                     if (nums[i] + nums[j] + nums[k] == 0) {
                         vector<int> triplet = {nums[i], nums[j], nums[k]};
-                        // Manual sorting
+                        
                         if (triplet[0] > triplet[1]) {
                             int temp = triplet[0];
                             triplet[0] = triplet[1];
@@ -33,7 +33,7 @@ public:
                             triplet[0] = triplet[1];
                             triplet[1] = temp;
                         }
-                        // Check duplicates
+                       
                         bool isDuplicate = false;
                         for (const auto& existing : result) {
                             if (existing[0] == triplet[0] && 
@@ -60,12 +60,11 @@ vector<int> generate_test_case(int n) {
     mt19937 gen(rd());
     uniform_int_distribution<> dist(-1000, 1000);
     
-    // Ensure at least one valid triplet
+   
     nums.push_back(-500);
     nums.push_back(200);
     nums.push_back(300);
     
-    // Fill the rest with random numbers
     for (int i = 3; i < n; ++i) {
         nums.push_back(dist(gen));
     }
